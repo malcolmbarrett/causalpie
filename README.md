@@ -39,7 +39,7 @@ ways to cause D. In fact, any of these combination will result in D:
   - B = 1, E = 1
 
 These different combinations are called sufficient causes, because they
-are sufficient to cause D. Any component that appears in all sufficient
+are sufficient to cause D. Any components that appear in all sufficient
 causes are called necessary causes.
 
 In `causalpie`, you define causes using `causify`. Each sufficient cause

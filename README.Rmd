@@ -38,7 +38,7 @@ Let's consider an example about disease D. There may be many paths to a person d
 * A = 0, E = 1
 * B = 1, E = 1
 
-These different combinations are called sufficient causes, because they are sufficient to cause D. Any component that appears in all sufficient causes are called necessary causes.
+These different combinations are called sufficient causes, because they are sufficient to cause D. Any components that appear in all sufficient causes are called necessary causes.
 
 In `causalpie`, you define causes using `causify`. Each sufficient cause is grouped by the `sc()` function, which takes named values (e.g. E = 1). By tradition, a component `U` is added to each sufficient cause to represent unknown components. This can be turned off by setting `add_u = FALSE`.
 
