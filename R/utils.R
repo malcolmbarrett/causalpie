@@ -1,0 +1,11 @@
+utils::globalVariables(
+  c(
+    "frac",
+    "component",
+    "label",
+    "necessary",
+    "cause",
+    "data",
+    "contains_comp",
+    "component_col")
+)

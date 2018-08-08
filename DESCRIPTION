@@ -1,0 +1,28 @@
+Package: causalpie
+Type: Package
+Title: Causal Pies for Sufficient Causes
+Version: 0.1.0
+Authors@R: person("Malcolm", "Barrett", 
+    email = "malcolmbarrett@gmail.com", 
+    role = c("aut", "cre"))
+Maintainer: Malcolm Barrett <malcolmbarrett@gmail.com>
+Description: Causal pies are a way of visualizing the sufficient causes 
+  framework. Sufficient causes are what must occur before some event happens. The 
+  components of what causes the event may be in any or all sufficient causes, and 
+  those that are in all are called necessary causes. The sufficient cause 
+  framework was developed by Kenneth Rothman as a way of thinking about causes of 
+  disease in epidemiology.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.0.1.9000
+Imports: 
+    magrittr,
+    dplyr,
+    tidyr,
+    purrr,
+    tibble
+Depends:
+    ggplot2 (>= 2.2.0),
+    R (>= 3.3.0)

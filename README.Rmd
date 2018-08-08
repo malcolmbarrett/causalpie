@@ -1,0 +1,65 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%",
+  dpi = 320
+)
+```
+# causalpie: An R Package for easily creating and visualizing causal pies
+
+The goal of causalpie is to ...
+
+## Installation
+
+You can install the released version of causalpie from GitHub with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("malcolmbarrett/causalpie")
+```
+
+## Sufficient causes and causal pies
+
+The sufficient-component cause model (SCC), [proposed by Kenneth Rothman in 1976](https://pdfs.semanticscholar.org/4da7/76ed2ee2119e70ae46798056baf0f9d69316.pdf), is a framework for understanding how events occur. Rothman, an epidemioligist, conceived of SCC to understand the causes of diseases. 
+
+Let's consider an example about disease D. There may be many paths to a person developing D. We know that A, B, and E all cause D, but we don't always need to have all three for D to occur. In SCC, A, B, and E are referred to as components. The components may combine in a multitude of ways to cause D. In fact, any of these combination will result in D:
+
+* A = 0, B = 1
+* A = 0, E = 1
+* B = 1, E = 1
+
+These different combinations are called sufficient causes, because they are sufficient to cause D. Any component that appears in all sufficient causes are called necessary causes.
+
+In `causalpie`, you define causes using `causify`. Each sufficient cause is grouped by the `sc()` function, which takes named values (e.g. E = 1). By tradition, a component `U` is added to each sufficient cause to represent unknown components. This can be turned off by setting `add_u = FALSE`.
+
+```{r example}
+library(causalpie)
+causes <- causify(sc(A = 0, B = 1), 
+                  sc(A = 0, E = 1), 
+                  sc(B = 1, E = 1))
+causes
+```
+
+You can plot the sufficient causes as pies in `ggplot2` using `causal_pie()`, which highlights unique components, or `causal_pie_necessary()`, which highlights necessary causes.
+
+```{r causal_pie}
+causal_pie(causes)
+```
+
+Because both objects are ggplots, you can change themes, scales, and so on.
+
+```{r causal_pie_necessary}
+causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) %>% 
+  causal_pie_necessary() +
+  theme_causal_pie() +
+  scale_fill_manual(values = c("#56B4E9", "#E69F00"))
+```
+
