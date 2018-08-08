@@ -1,13 +1,20 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# causalpie: An R Package for easily creating and visualizing causal pies
+[![Travis build
+status](https://travis-ci.org/malcolmbarrett/causalpie.svg?branch=master)](https://travis-ci.org/malcolmbarrett/causalpie)
+[![AppVeyor build
+status](https://ci.appveyor.com/api/projects/status/github/malcolmbarrett/causalpie?branch=master&svg=true)](https://ci.appveyor.com/project/malcolmbarrett/causalpie)
+\# causalpie: An R Package for easily creating and visualizing causal
+pies
 
-The goal of causalpie is to …
+`causalpie` is an R package for creating tidy sufficient-component
+causal models. Create and analyze sufficient causes and plot them easily
+in `ggplot2`.
 
 ## Installation
 
-You can install the released version of causalpie from GitHub with:
+You can install the development version of `causalpie` from GitHub with:
 
 ``` r
 # install.packages("devtools")
@@ -19,7 +26,7 @@ devtools::install_github("malcolmbarrett/causalpie")
 The sufficient-component cause model (SCC), [proposed by Kenneth Rothman
 in 1976](https://pdfs.semanticscholar.org/4da7/76ed2ee2119e70ae46798056baf0f9d69316.pdf),
 is a framework for understanding how events occur. Rothman, an
-epidemioligist, conceived of SCC to understand the causes of diseases.
+epidemiologist, conceived of SCC to understand the causes of diseases.
 
 Let’s consider an example about disease D. There may be many paths to a
 person developing D. We know that A, B, and E all cause D, but we don’t
