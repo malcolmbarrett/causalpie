@@ -4,3 +4,7 @@
 ^README\.Rmd$
 ^\.travis\.yml$
 ^appveyor\.yml$
+^\.github$
+^\.claude$
+^\.beads$
+^CLAUDE\.md$

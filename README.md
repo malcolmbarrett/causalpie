@@ -1,11 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-[![Travis build
-status](https://travis-ci.org/malcolmbarrett/causalpie.svg?branch=master)](https://travis-ci.org/malcolmbarrett/causalpie)
-[![AppVeyor build
-status](https://ci.appveyor.com/api/projects/status/github/malcolmbarrett/causalpie?branch=master&svg=true)](https://ci.appveyor.com/project/malcolmbarrett/causalpie)
-
 # causalpie: An R Package for easily creating and visualizing causal pies
 
 `causalpie` is an R package for creating tidy sufficient-component
@@ -24,7 +19,8 @@ devtools::install_github("malcolmbarrett/causalpie")
 ## Sufficient causes and causal pies
 
 The sufficient-component cause model (SCC), [proposed by Kenneth Rothman
-in 1976](https://pdfs.semanticscholar.org/4da7/76ed2ee2119e70ae46798056baf0f9d69316.pdf),
+in
+1976](https://pdfs.semanticscholar.org/4da7/76ed2ee2119e70ae46798056baf0f9d69316.pdf),
 is a framework for understanding how events occur. Rothman, an
 epidemiologist, conceived of SCC to understand the causes of diseases.
 
@@ -34,9 +30,9 @@ always need to have all three for D to occur. In SCC, A, B, and E are
 referred to as components. The components may combine in a multitude of
 ways to cause D. In fact, any of these combination will result in D:
 
-  - A = 0, B = 1
-  - A = 0, E = 1
-  - B = 1, E = 1
+- A = 0, B = 1
+- A = 0, E = 1
+- B = 1, E = 1
 
 These different combinations are called sufficient causes, because they
 are sufficient to cause D. Any components that appear in all sufficient
@@ -45,28 +41,28 @@ causes are called necessary causes.
 In `causalpie`, you define causes using `causify`. Each sufficient cause
 is grouped by the `sc()` function, which takes named values (e.g. E =
 1). By tradition, a component `U` is added to each sufficient cause to
-represent unknown components. This can be turned off by setting `add_u =
-FALSE`.
+represent unknown components. This can be turned off by setting
+`add_u = FALSE`.
 
 ``` r
 library(causalpie)
 #> Loading required package: ggplot2
-causes <- causify(sc(A = 0, B = 1), 
-                  sc(A = 0, E = 1), 
+causes <- causify(sc(A = 0, B = 1),
+                  sc(A = 0, E = 1),
                   sc(B = 1, E = 1))
 causes
-#> # A tibble: 9 x 5
+#> # A tibble: 9 × 5
 #>   component value label  frac cause             
-#>   <chr>     <chr> <chr> <dbl> <chr>             
-#> 1 A         0     A = 0  0.25 Sufficient Cause 1
-#> 2 B         1     B = 1  0.25 Sufficient Cause 1
-#> 3 U1        ?     U1     0.5  Sufficient Cause 1
-#> 4 A         0     A = 0  0.25 Sufficient Cause 2
-#> 5 E         1     E = 1  0.25 Sufficient Cause 2
-#> 6 U2        ?     U2     0.5  Sufficient Cause 2
-#> 7 B         1     B = 1  0.25 Sufficient Cause 3
-#> 8 E         1     E = 1  0.25 Sufficient Cause 3
-#> 9 U3        ?     U3     0.5  Sufficient Cause 3
+#>   <chr>     <dbl> <chr> <dbl> <chr>             
+#> 1 A             0 A = 0  0.25 Sufficient Cause 1
+#> 2 B             1 B = 1  0.25 Sufficient Cause 1
+#> 3 U1           NA U1     0.5  Sufficient Cause 1
+#> 4 A             0 A = 0  0.25 Sufficient Cause 2
+#> 5 E             1 E = 1  0.25 Sufficient Cause 2
+#> 6 U2           NA U2     0.5  Sufficient Cause 2
+#> 7 B             1 B = 1  0.25 Sufficient Cause 3
+#> 8 E             1 E = 1  0.25 Sufficient Cause 3
+#> 9 U3           NA U3     0.5  Sufficient Cause 3
 ```
 
 You can plot the sufficient causes as pies in `ggplot2` using
@@ -77,16 +73,24 @@ You can plot the sufficient causes as pies in `ggplot2` using
 causal_pie(causes)
 ```
 
-<img src="man/figures/README-causal_pie-1.png" width="100%" />
+<img src="man/figures/README-causal_pie-1.png" alt="" width="100%" />
 
 Because both objects are ggplots, you can change themes, scales, and so
 on.
 
 ``` r
-causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) %>% 
+causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) %>%
   causal_pie_necessary() +
   theme_causal_pie() +
   scale_fill_manual(values = c("#56B4E9", "#E69F00"))
+#> Warning: Supplying `...` without names was deprecated in tidyr 1.0.0.
+#> ℹ Please specify a name for each selection.
+#> ℹ Did you want `data = -cause`?
+#> ℹ The deprecated feature was likely used in the causalpie package.
+#>   Please report the issue to the authors.
+#> This warning is displayed once per session.
+#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+#> generated.
 ```
 
-<img src="man/figures/README-causal_pie_necessary-1.png" width="100%" />
+<img src="man/figures/README-causal_pie_necessary-1.png" alt="" width="100%" />
