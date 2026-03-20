@@ -31,7 +31,7 @@ causify <- function(..., add_u = TRUE) {
 }
 
 wrangle_causes <- function(sufficient_cause, add_u = TRUE, u_name = "U",
-                           u_value = "?",
+                           u_value = NA_real_,
                            u_frac = .5, cause_name = "Sufficient Cause") {
   n_components <- length(sufficient_cause)
   sufficient_cause <- tibble::enframe(sufficient_cause, name = "component")
@@ -42,7 +42,7 @@ wrangle_causes <- function(sufficient_cause, add_u = TRUE, u_name = "U",
      cause_df <- sufficient_cause %>%
          dplyr::add_row(component = u_name, value = u_value) %>%
          dplyr::bind_cols(
-           tibble::data_frame(
+           tibble::tibble(
              label = c(components, u_name),
              frac = c(rep(pie_fraction, n_components), u_frac),
              cause = cause_name
@@ -52,7 +52,7 @@ wrangle_causes <- function(sufficient_cause, add_u = TRUE, u_name = "U",
      pie_fraction <- 1 / n_components
      cause_df <- sufficient_cause %>%
          dplyr::bind_cols(
-           tibble::data_frame(
+           tibble::tibble(
              label = components,
              frac = rep(pie_fraction, n_components),
              cause = cause_name

@@ -23,6 +23,9 @@ Imports:
     tidyr,
     purrr,
     tibble
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
 Depends:
     ggplot2 (>= 2.2.0),
     R (>= 3.3.0)
