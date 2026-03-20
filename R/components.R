@@ -31,7 +31,7 @@ necessary_causes <- function(causes) {
     causes %>%
       dplyr::group_by(cause) %>%
       dplyr::select(component, cause) %>%
-      tidyr::nest(-cause) %>%
+      tidyr::nest(data = -cause) %>%
       dplyr::mutate(contains_comp = purrr::map_lgl(data, ~ .comp %in% .x$component)) %>%
       dplyr::pull(contains_comp) %>%
       all()

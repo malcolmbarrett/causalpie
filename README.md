@@ -83,14 +83,6 @@ causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) %>%
   causal_pie_necessary() +
   theme_causal_pie() +
   scale_fill_manual(values = c("#56B4E9", "#E69F00"))
-#> Warning: Supplying `...` without names was deprecated in tidyr 1.0.0.
-#> ℹ Please specify a name for each selection.
-#> ℹ Did you want `data = -cause`?
-#> ℹ The deprecated feature was likely used in the causalpie package.
-#>   Please report the issue to the authors.
-#> This warning is displayed once per session.
-#> Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
-#> generated.
 ```
 
 <img src="man/figures/README-causal_pie_necessary-1.png" alt="" width="100%" />
