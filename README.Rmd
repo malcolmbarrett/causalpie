@@ -58,7 +58,7 @@ causal_pie(causes)
 Because both objects are ggplots, you can change themes, scales, and so on.
 
 ```{r causal_pie_necessary}
-causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) %>%
+causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) |>
   causal_pie_necessary() +
   theme_causal_pie() +
   scale_fill_manual(values = c("#56B4E9", "#E69F00"))
