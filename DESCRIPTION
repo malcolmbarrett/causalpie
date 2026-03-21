@@ -22,7 +22,9 @@ Imports:
     tibble,
     tidyr
 Suggests:
-    testthat (>= 3.0.0)
+    rlang,
+    testthat (>= 3.0.0),
+    vdiffr
 Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
