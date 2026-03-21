@@ -9,11 +9,17 @@ in `ggplot2`.
 
 ## Installation
 
+You can install causalpie from CRAN with:
+
+``` r
+install.packages("causalpie")
+```
+
 You can install the development version of `causalpie` from GitHub with:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("malcolmbarrett/causalpie")
+# install.packages("pak")
+pak::pak("r-causal/causalpie")
 ```
 
 ## Sufficient causes and causal pies

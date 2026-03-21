@@ -17,6 +17,9 @@ theme_causal_pie_grid(base_size = 12, base_family = "", ...)
 
 \item{...}{additional arguments passed to \code{theme()}}
 }
+\value{
+A \link[ggplot2:theme]{ggplot2::theme} object
+}
 \description{
 Minimalist themes for causal pies
 }
