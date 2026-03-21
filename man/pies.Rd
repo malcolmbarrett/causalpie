@@ -27,11 +27,11 @@ components that appear in every sufficient cause).
 \examples{
 causes <- causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0))
 
-causes \%>\%
+causes |>
   causal_pie() +
   theme_causal_pie()
 
-causes \%>\%
+causes |>
   causal_pie_necessary() +
   theme_causal_pie_grid()
 

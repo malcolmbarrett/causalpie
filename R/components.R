@@ -28,12 +28,12 @@ components <- function(causes) {
 necessary_causes <- function(causes) {
   comps <- components(causes)
   necessary <- purrr::map_lgl(comps, function(.comp) {
-    causes %>%
-      dplyr::group_by(cause) %>%
-      dplyr::select(component, cause) %>%
-      tidyr::nest(data = -cause) %>%
-      dplyr::mutate(contains_comp = purrr::map_lgl(data, ~ .comp %in% .x$component)) %>%
-      dplyr::pull(contains_comp) %>%
+    causes |>
+      dplyr::group_by(cause) |>
+      dplyr::select(component, cause) |>
+      tidyr::nest(data = -cause) |>
+      dplyr::mutate(contains_comp = purrr::map_lgl(data, \(d) .comp %in% d$component)) |>
+      dplyr::pull(contains_comp) |>
       all()
  })
 
@@ -43,8 +43,8 @@ necessary_causes <- function(causes) {
 #' @export
 #' @name components
 sufficient_causes <- function(causes) {
-  causes %>%
-      dplyr::group_by(cause) %>%
-      dplyr::summarise(component_col = paste(label, collapse = ", ")) %>%
+  causes |>
+      dplyr::group_by(cause) |>
+      dplyr::summarise(component_col = paste(label, collapse = ", ")) |>
       dplyr::pull(component_col)
 }

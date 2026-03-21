@@ -14,11 +14,11 @@
 #' @examples
 #' causes <- causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0))
 #'
-#' causes %>%
+#' causes |>
 #'   causal_pie() +
 #'   theme_causal_pie()
 #'
-#' causes %>%
+#' causes |>
 #'   causal_pie_necessary() +
 #'   theme_causal_pie_grid()
 #'
@@ -43,7 +43,7 @@ causal_pie <- function(causes, text_col = "black") {
 #' @name pies
 causal_pie_necessary <- function(causes, text_col = "black") {
   necessary_comp <- necessary_causes(causes)
-  causes <- causes %>%
+  causes <- causes |>
     dplyr::mutate(necessary = component %in% necessary_comp)
   p <- ggplot2::ggplot(data = causes, ggplot2::aes(x = 0, y = frac, fill = necessary)) +
     ggplot2::geom_bar(stat = "identity", col = "white") +
@@ -69,7 +69,7 @@ causal_pie_necessary <- function(causes, text_col = "black") {
 #'
 #' @examples
 #'
-#' causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) %>%
+#' causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) |>
 #'   causal_pie_necessary() +
 #'   theme_causal_pie()
 #' @name themes

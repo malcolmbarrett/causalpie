@@ -24,9 +24,9 @@ sc <- function(...) {
 #' @name causes
 causify <- function(..., add_u = TRUE) {
   causes <- list(...)
-  purrr::imap_dfr(causes, ~wrangle_causes(.x,
-                                          cause_name = paste("Sufficient Cause", .y),
-                                          u_name = paste0("U", .y),
+  purrr::imap_dfr(causes, \(x, y) wrangle_causes(x,
+                                          cause_name = paste("Sufficient Cause", y),
+                                          u_name = paste0("U", y),
                                           add_u = add_u))
 }
 
@@ -39,8 +39,8 @@ wrangle_causes <- function(sufficient_cause, add_u = TRUE, u_name = "U",
 
    if (add_u) {
      pie_fraction <- u_frac / n_components
-     cause_df <- sufficient_cause %>%
-         dplyr::add_row(component = u_name, value = u_value) %>%
+     cause_df <- sufficient_cause |>
+         dplyr::add_row(component = u_name, value = u_value) |>
          dplyr::bind_cols(
            tibble::tibble(
              label = c(components, u_name),
@@ -50,7 +50,7 @@ wrangle_causes <- function(sufficient_cause, add_u = TRUE, u_name = "U",
      )
    } else {
      pie_fraction <- 1 / n_components
-     cause_df <- sufficient_cause %>%
+     cause_df <- sufficient_cause |>
          dplyr::bind_cols(
            tibble::tibble(
              label = components,

@@ -11,7 +11,7 @@ theme_causal_pie(base_size = 12, base_family = "", ...)
 theme_causal_pie_grid(base_size = 12, base_family = "", ...)
 }
 \arguments{
-\item{base_size}{base font size}
+\item{base_size}{base font size, given in pts.}
 
 \item{base_family}{base font family}
 
@@ -22,7 +22,7 @@ Minimalist themes for causal pies
 }
 \examples{
 
-causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) \%>\%
+causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) |>
   causal_pie_necessary() +
   theme_causal_pie()
 }
