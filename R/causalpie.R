@@ -65,6 +65,7 @@ causal_pie_necessary <- function(causes, text_col = "black") {
 #' @inheritParams ggplot2::theme_minimal
 #' @param ... additional arguments passed to `theme()`
 #'
+#' @return A [ggplot2::theme] object
 #' @export
 #'
 #' @examples
