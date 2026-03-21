@@ -8,3 +8,6 @@
 ^\.claude$
 ^\.beads$
 ^CLAUDE\.md$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
