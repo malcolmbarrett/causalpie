@@ -46,7 +46,6 @@ represent unknown components. This can be turned off by setting
 
 ``` r
 library(causalpie)
-#> Loading required package: ggplot2
 causes <- causify(sc(A = 0, B = 1),
                   sc(A = 0, E = 1),
                   sc(B = 1, E = 1))
@@ -79,7 +78,8 @@ Because both objects are ggplots, you can change themes, scales, and so
 on.
 
 ``` r
-causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) %>%
+library(ggplot2)
+causify(sc(A = 1, B = 0), sc(A = 1, E = 1, C = 0)) |>
   causal_pie_necessary() +
   theme_causal_pie() +
   scale_fill_manual(values = c("#56B4E9", "#E69F00"))
