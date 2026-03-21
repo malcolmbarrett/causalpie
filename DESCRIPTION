@@ -26,5 +26,5 @@ Suggests:
     testthat (>= 3.0.0)
 Config/testthat/edition: 3
 Depends:
-    ggplot2 (>= 2.2.0),
+    ggplot2 (>= 3.4.0),
     R (>= 4.2.0)
