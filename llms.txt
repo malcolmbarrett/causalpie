@@ -17,7 +17,7 @@ devtools::install_github("malcolmbarrett/causalpie")
 
 The sufficient-component cause model (SCC), [proposed by Kenneth Rothman
 in
-1976](https://pdfs.semanticscholar.org/4da7/76ed2ee2119e70ae46798056baf0f9d69316.pdf),
+1976](https://www.semanticscholar.org/paper/Reviews-and-Commentary-CAUSES-Rothman/4da776ed2ee2119e70ae46798056baf0f9d69316?p2df),
 is a framework for understanding how events occur. Rothman, an
 epidemiologist, conceived of SCC to understand the causes of diseases.
 
