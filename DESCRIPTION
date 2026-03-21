@@ -29,4 +29,5 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.3
-URL: https://malcolmbarrett.github.io/causalpie/
+URL: https://r-causal.github.io/causalpie/, https://github.com/r-causal/causalpie
+BugReports: https://github.com/r-causal/causalpie/issues
