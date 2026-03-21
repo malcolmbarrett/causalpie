@@ -26,3 +26,31 @@ test_that("sufficient_causes() returns descriptions of each cause", {
   expect_true(grepl("A", result[1]))
   expect_true(grepl("B", result[1]))
 })
+
+test_that("necessary_causes() with single cause returns all components", {
+  causes <- causify(sc(A = 1, B = 0))
+  result <- necessary_causes(causes)
+  expect_true("A" %in% result)
+  expect_true("B" %in% result)
+  expect_true("U1" %in% result)
+})
+
+test_that("necessary_causes() detects a non-U necessary cause", {
+  causes <- causify(sc(A = 1, B = 0), sc(A = 1, E = 1))
+  result <- necessary_causes(causes)
+  expect_true("A" %in% result)
+  expect_false("B" %in% result)
+  expect_false("E" %in% result)
+})
+
+test_that("sufficient_causes() returns one description per cause", {
+  causes <- causify(sc(A = 1, B = 0), sc(C = 1))
+  result <- sufficient_causes(causes)
+  expect_length(result, 2)
+})
+
+test_that("components() with add_u = FALSE has no U components", {
+  causes <- causify(sc(A = 1, B = 0), add_u = FALSE)
+  result <- components(causes)
+  expect_false(any(grepl("^U", result)))
+})
