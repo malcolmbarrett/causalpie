@@ -37,6 +37,7 @@
 <li class="nav-item"><form class="form-inline" role="search">
  <input class="form-control" type="search" name="search-input" id="search-input" autocomplete="off" aria-label="Search site" placeholder="Search for" data-search-index="search.json">
 </form></li>
+<li class="nav-item"><a class="external-link nav-link" href="https://github.com/r-causal/causalpie/" aria-label="GitHub"><span class="fa fab fa-github fa-lg"></span></a></li>
       </ul>
 </div>
 
@@ -69,7 +70,7 @@
 <p>These different combinations are called sufficient causes, because they are sufficient to cause D. Any components that appear in all sufficient causes are called necessary causes.</p>
 <p>In <code>causalpie</code>, you define causes using <code>causify</code>. Each sufficient cause is grouped by the <code><a href="reference/causes.html">sc()</a></code> function, which takes named values (e.g. E = 1). By tradition, a component <code>U</code> is added to each sufficient cause to represent unknown components. This can be turned off by setting <code>add_u = FALSE</code>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://malcolmbarrett.github.io/causalpie/">causalpie</a></span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-causal.github.io/causalpie/" class="external-link">causalpie</a></span><span class="op">)</span></span>
 <span><span class="va">causes</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/causes.html">causify</a></span><span class="op">(</span><span class="fu"><a href="reference/causes.html">sc</a></span><span class="op">(</span>A <span class="op">=</span> <span class="fl">0</span>, B <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
 <span>                  <span class="fu"><a href="reference/causes.html">sc</a></span><span class="op">(</span>A <span class="op">=</span> <span class="fl">0</span>, E <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
 <span>                  <span class="fu"><a href="reference/causes.html">sc</a></span><span class="op">(</span>B <span class="op">=</span> <span class="fl">1</span>, E <span class="op">=</span> <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span>
@@ -100,7 +101,15 @@
 <p><img src="reference/figures/README-causal_pie_necessary-1.png" alt="" width="100%"></p>
 </div>
 </div>
-  </main><aside class="col-md-3"><div class="license">
+  </main><aside class="col-md-3"><div class="links">
+<h2 data-toc-skip>Links</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/r-causal/causalpie/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/r-causal/causalpie/issues" class="external-link">Report a bug</a></li>
+</ul>
+</div>
+
+<div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
 <li><a href="LICENSE.html">Full license</a></li>
