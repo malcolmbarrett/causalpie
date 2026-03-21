@@ -16,10 +16,9 @@ devtools::install_github("malcolmbarrett/causalpie")
 ## Sufficient causes and causal pies
 
 The sufficient-component cause model (SCC), [proposed by Kenneth Rothman
-in
-1976](https://www.semanticscholar.org/paper/Reviews-and-Commentary-CAUSES-Rothman/4da776ed2ee2119e70ae46798056baf0f9d69316?p2df),
-is a framework for understanding how events occur. Rothman, an
-epidemiologist, conceived of SCC to understand the causes of diseases.
+in 1976](https://pubmed.ncbi.nlm.nih.gov/998606/), is a framework for
+understanding how events occur. Rothman, an epidemiologist, conceived of
+SCC to understand the causes of diseases.
 
 Let’s consider an example about disease D. There may be many paths to a
 person developing D. We know that A, B, and E all cause D, but we don’t
