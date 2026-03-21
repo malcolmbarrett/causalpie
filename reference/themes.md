@@ -25,6 +25,11 @@ theme_causal_pie_grid(base_size = 12, base_family = "", ...)
   additional arguments passed to
   [`theme()`](https://ggplot2.tidyverse.org/reference/theme.html)
 
+## Value
+
+A [ggplot2::theme](https://ggplot2.tidyverse.org/reference/theme.html)
+object
+
 ## Examples
 
 ``` r

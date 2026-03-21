@@ -2,7 +2,7 @@
 
 ## Authors
 
-- **Malcolm Barrett**. Author, maintainer.
+- **Malcolm Barrett**. Author, maintainer, copyright holder.
   [](https://orcid.org/0000-0003-0299-5825)
 
 ## Citation

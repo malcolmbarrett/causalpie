@@ -32,6 +32,7 @@
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
+<li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
       </ul>
 <ul class="navbar-nav">
 <li class="nav-item"><form class="form-inline" role="search">
@@ -52,10 +53,13 @@
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
-<p>You can install the development version of <code>causalpie</code> from GitHub with:</p>
+<p>You can install causalpie from CRAN with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"malcolmbarrett/causalpie"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html" class="external-link">install.packages</a></span><span class="op">(</span><span class="st">"causalpie"</span><span class="op">)</span></span></code></pre></div>
+<p>You can install the development version of <code>causalpie</code> from GitHub with:</p>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("pak")</span></span>
+<span><span class="fu">pak</span><span class="fu">::</span><span class="fu"><a href="https://pak.r-lib.org/reference/pak.html" class="external-link">pak</a></span><span class="op">(</span><span class="st">"r-causal/causalpie"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="sufficient-causes-and-causal-pies">Sufficient causes and causal pies<a class="anchor" aria-label="anchor" href="#sufficient-causes-and-causal-pies"></a>
@@ -69,7 +73,7 @@
 </ul>
 <p>These different combinations are called sufficient causes, because they are sufficient to cause D. Any components that appear in all sufficient causes are called necessary causes.</p>
 <p>In <code>causalpie</code>, you define causes using <code>causify</code>. Each sufficient cause is grouped by the <code><a href="reference/causes.html">sc()</a></code> function, which takes named values (e.g. E = 1). By tradition, a component <code>U</code> is added to each sufficient cause to represent unknown components. This can be turned off by setting <code>add_u = FALSE</code>.</p>
-<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-causal.github.io/causalpie/" class="external-link">causalpie</a></span><span class="op">)</span></span>
 <span><span class="va">causes</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/causes.html">causify</a></span><span class="op">(</span><span class="fu"><a href="reference/causes.html">sc</a></span><span class="op">(</span>A <span class="op">=</span> <span class="fl">0</span>, B <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
 <span>                  <span class="fu"><a href="reference/causes.html">sc</a></span><span class="op">(</span>A <span class="op">=</span> <span class="fl">0</span>, E <span class="op">=</span> <span class="fl">1</span><span class="op">)</span>,</span>
@@ -88,11 +92,11 @@
 <span><span class="co">#&gt; 8 E             1 E = 1  0.25 Sufficient Cause 3</span></span>
 <span><span class="co">#&gt; 9 U3           NA U3     0.5  Sufficient Cause 3</span></span></code></pre></div>
 <p>You can plot the sufficient causes as pies in <code>ggplot2</code> using <code><a href="reference/pies.html">causal_pie()</a></code>, which highlights unique components, or <code><a href="reference/pies.html">causal_pie_necessary()</a></code>, which highlights necessary causes.</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="reference/pies.html">causal_pie</a></span><span class="op">(</span><span class="va">causes</span><span class="op">)</span></span></code></pre></div>
 <p><img src="reference/figures/README-causal_pie-1.png" alt="" width="100%"></p>
 <p>Because both objects are ggplots, you can change themes, scales, and so on.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/causes.html">causify</a></span><span class="op">(</span><span class="fu"><a href="reference/causes.html">sc</a></span><span class="op">(</span>A <span class="op">=</span> <span class="fl">1</span>, B <span class="op">=</span> <span class="fl">0</span><span class="op">)</span>, <span class="fu"><a href="reference/causes.html">sc</a></span><span class="op">(</span>A <span class="op">=</span> <span class="fl">1</span>, E <span class="op">=</span> <span class="fl">1</span>, C <span class="op">=</span> <span class="fl">0</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/pies.html">causal_pie_necessary</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
@@ -128,7 +132,7 @@
 <div class="developers">
 <h2 data-toc-skip>Developers</h2>
 <ul class="list-unstyled">
-<li>Malcolm Barrett <br><small class="roles"> Author, maintainer </small> <a href="https://orcid.org/0000-0003-0299-5825" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
+<li>Malcolm Barrett <br><small class="roles"> Author, maintainer, copyright holder </small> <a href="https://orcid.org/0000-0003-0299-5825" target="orcid.widget" aria-label="ORCID" class="external-link"><span class="fab fa-orcid orcid" aria-hidden="true"></span></a>  </li>
 </ul>
 </div>
 
